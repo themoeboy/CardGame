@@ -1,0 +1,100 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://Main/CardBattle.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Cards/card-2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Cards/card-1.png" type="Texture" id=3]
+[ext_resource path="res://Main/CardBattle/Enemy.gd" type="Script" id=4]
+[ext_resource path="res://Main/CardBattle/Player.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Animations/cardspeedlines1.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Animations/cardspeedlines2.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Animations/cardspeedlines3.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Cards/cardbattle3.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Cards/cardbattle9.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Cards/cardbattle7.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Cards/cardbattle11.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Cards/cardbattle5.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Cards/cardbattle6.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Cards/cardbattle12.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Cards/cardbattle10.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Cards/cardbattle8.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Cards/cardbattle4.png" type="Texture" id=18]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 25.25, 32.75 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 24.5, 32 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 18 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 11 ), ExtResource( 17 ), ExtResource( 10 ), ExtResource( 16 ), ExtResource( 12 ), ExtResource( 15 ) ],
+"loop": false,
+"name": "default",
+"speed": 20.0
+} ]
+
+[node name="CardBattle" type="Node2D"]
+position = Vector2( -1, -3 )
+z_index = -1
+z_as_relative = false
+script = ExtResource( 1 )
+
+[node name="Enemy" type="KinematicBody2D" parent="."]
+position = Vector2( 1, 0 )
+script = ExtResource( 4 )
+
+[node name="CardArt" type="Sprite" parent="Enemy"]
+position = Vector2( 24, 34 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+position = Vector2( 24, 34 )
+shape = SubResource( 1 )
+
+[node name="Speedlines" type="AnimatedSprite" parent="Enemy"]
+visible = false
+position = Vector2( 25, -9 )
+scale = Vector2( 0.47, 0.7 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 1, 127 )
+script = ExtResource( 5 )
+
+[node name="CardArt" type="Sprite" parent="Player"]
+position = Vector2( 25, 32 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2( 25, 32 )
+shape = SubResource( 2 )
+
+[node name="Speedlines" type="AnimatedSprite" parent="Player"]
+visible = false
+position = Vector2( 25, 80 )
+scale = Vector2( 0.47, 0.7 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="WindupTimer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="CrashAnimation" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 35, 102 )
+frames = SubResource( 4 )
+
+[connection signal="timeout" from="WindupTimer" to="Enemy" method="_on_WindupTimer_timeout"]
+[connection signal="timeout" from="WindupTimer" to="Player" method="_on_WindupTimer_timeout"]
+[connection signal="animation_finished" from="CrashAnimation" to="." method="_on_CrashAnimation_animation_finished"]

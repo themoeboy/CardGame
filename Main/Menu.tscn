@@ -1,0 +1,82 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Assets/deckt-button-normal.png" type="Texture" id=1]
+[ext_resource path="res://Assets/deck-button-pressed.png" type="Texture" id=2]
+[ext_resource path="res://Assets/settings-button-pressed.png" type="Texture" id=3]
+[ext_resource path="res://Assets/settings-button-normal.png" type="Texture" id=4]
+[ext_resource path="res://Assets/start-button-normal.png" type="Texture" id=5]
+[ext_resource path="res://Assets/exit-button-pressed.png" type="Texture" id=6]
+[ext_resource path="res://Assets/exit-button-normal.png" type="Texture" id=7]
+[ext_resource path="res://Assets/start-button-pressed.png" type="Texture" id=8]
+[ext_resource path="res://Assets/DotGothic16-Regular.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Assets/card-game-background.png" type="Texture" id=10]
+[ext_resource path="res://Main/Menu.gd" type="Script" id=11]
+[ext_resource path="res://Assets/start-button-disabledt.png" type="Texture" id=12]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 9 )
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 11 )
+
+[node name="Card-game-background" type="Sprite" parent="."]
+position = Vector2( 323.25, 180.25 )
+scale = Vector2( 1.01172, 1.01528 )
+texture = ExtResource( 10 )
+
+[node name="Title" type="Label" parent="."]
+anchor_right = 1.0
+margin_bottom = 131.0
+custom_fonts/font = SubResource( 1 )
+text = "Card Game, A Card Game "
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartButton" type="TextureButton" parent="."]
+margin_left = 261.0
+margin_top = 116.0
+margin_right = 379.0
+margin_bottom = 164.0
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 8 )
+texture_disabled = ExtResource( 12 )
+
+[node name="DeckButton" type="TextureButton" parent="."]
+margin_left = 262.0
+margin_top = 178.0
+margin_right = 380.0
+margin_bottom = 226.0
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SettingsButton" type="TextureButton" parent="."]
+margin_left = 262.0
+margin_top = 241.0
+margin_right = 380.0
+margin_bottom = 289.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+
+[node name="ExitButton" type="TextureButton" parent="."]
+margin_left = 262.0
+margin_top = 302.0
+margin_right = 380.0
+margin_bottom = 350.0
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 6 )
+
+[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="DeckButton" to="." method="_on_DeckButton_pressed"]
+[connection signal="pressed" from="SettingsButton" to="." method="_on_SettingsButton_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_ExitButton_pressed"]

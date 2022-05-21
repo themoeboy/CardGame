@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/readybutton-2.png" type="Texture" id=1]
+[ext_resource path="res://Assets/readybutton.png" type="Texture" id=2]
+[ext_resource path="res://Assets/readybutton-pressed.png" type="Texture" id=3]
+[ext_resource path="res://Main/ReadyButton.gd" type="Script" id=4]
+
+[node name="ReadyButton" type="TextureButton"]
+anchor_right = 0.184
+anchor_bottom = 0.133
+margin_right = 0.23999
+margin_bottom = 0.119999
+disabled = true
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_disabled = ExtResource( 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_up" from="." to="." method="_on_ReadyButton_button_up"]

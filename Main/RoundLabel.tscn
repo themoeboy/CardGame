@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Main/RoundLabel.gd" type="Script" id=1]
+[ext_resource path="res://Assets/DotGothic16-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[node name="RoundLabel" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RoundContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_right = -1.0
+custom_constants/separation = 15
+alignment = 1
+
+[node name="Round" type="Label" parent="RoundContainer"]
+margin_top = 78.0
+margin_right = 640.0
+margin_bottom = 172.0
+custom_fonts/font = SubResource( 1 )
+text = "Round"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RoundPrefix" type="Label" parent="RoundContainer"]
+margin_top = 187.0
+margin_right = 640.0
+margin_bottom = 281.0
+custom_fonts/font = SubResource( 2 )
+text = "test"
+align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

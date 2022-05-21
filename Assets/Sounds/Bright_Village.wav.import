@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Bright_Village.wav-8b1ef09c3b7f0edf5288b7555784723e.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Bright_Village.wav"
+dest_files=[ "res://.import/Bright_Village.wav-8b1ef09c3b7f0edf5288b7555784723e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0
