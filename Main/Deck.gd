@@ -2,18 +2,18 @@ extends TextureButton
 
 var testPost = Vector2(250,264)
 var card = preload("res://Main/Card.tscn")
-onready var drawTimer = get_node("DrawTimer")
-onready var deckView = get_parent().get_node("DeckView")
-onready var deckCountLabel = get_node("DeckCountLabel")
-onready var deckList = get_tree().root.get_node('Board').get_node('DeckView').get_node('CardGrid')
+@onready var drawTimer = get_node("DrawTimer")
+@onready var deckView = get_parent().get_node("DeckView")
+@onready var deckCountLabel = get_node("DeckCountLabel")
+@onready var deckList = get_tree().root.get_node('Board').get_node('DeckView').get_node('CardGrid')
 const DRAW_COUNT_MAX = 7
 var current_draw = 0
 var loadDeck = 0
-onready var hand = get_parent().get_node('Hand')
+@onready var hand = get_parent().get_node('Hand')
 
 func demo_load():
 	while(loadDeck < MAIN.maxDeckList):
-		var deckCard = card.instance()
+		var deckCard = card.instantiate()
 		randomize()
 		deckCard.type = 'Player'
 		deckCard.cardType = MAIN.cardTypes[randi()%MAIN.cardTypes.size()]

@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Bright_Village.wav-8b1ef09c3b7f0edf5288b7555784723e.sample"
+type="AudioStreamWAV"
+uid="uid://r8lap4gogjl3"
+path="res://.godot/imported/Bright_Village.wav-8b1ef09c3b7f0edf5288b7555784723e.sample"
 
 [deps]
 
 source_file="res://Assets/Sounds/Bright_Village.wav"
-dest_files=[ "res://.import/Bright_Village.wav-8b1ef09c3b7f0edf5288b7555784723e.sample" ]
+dest_files=["res://.godot/imported/Bright_Village.wav-8b1ef09c3b7f0edf5288b7555784723e.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=true
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

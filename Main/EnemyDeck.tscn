@@ -1,37 +1,32 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene format=3]
 
-[ext_resource path="res://Assets/cardbackmockup.png" type="Texture" id=1]
-[ext_resource path="res://Assets/DotGothic16-Regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Main/EnemyDeck.gd" type="Script" id=3]
+[ext_resource type="Texture2D" path="res://Assets/cardbackmockup.png" id="1"]
+[ext_resource type="FontFile" path="res://Assets/DotGothic16-Regular.ttf" id="2"]
+[ext_resource type="Script" path="res://Main/EnemyDeck.gd" id="3"]
 
-[sub_resource type="DynamicFont" id=1]
-outline_size = 1
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 2 )
+[sub_resource type="FontVariation" id="1"]
+base_font = ExtResource("2")
 
 [node name="EnemyDeck" type="TextureButton"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture_normal = ExtResource( 1 )
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("1")
+script = ExtResource("3")
 
 [node name="DeckCountLabel" type="Label" parent="."]
 visible = false
-margin_left = 4.0
-margin_top = -25.0
-margin_right = 44.0
-margin_bottom = -1.0
-custom_colors/font_color = Color( 1, 1, 0.878431, 1 )
-custom_fonts/font = SubResource( 1 )
+offset_left = 4.0
+offset_top = -25.0
+offset_right = 44.0
+offset_bottom = -1.0
+theme_override_colors/font_color = Color(1, 1, 0.878431, 1)
+theme_override_fonts/font = SubResource("1")
+theme_override_font_sizes/font_size = 16
+theme_override_constants/outline_size = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "TEST"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="mouse_entered" from="." to="." method="_on_EnemyDeck_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_EnemyDeck_mouse_exited"]

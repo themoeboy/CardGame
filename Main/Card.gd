@@ -1,14 +1,14 @@
 extends TextureButton
 
-onready var battleField = get_tree().root.get_node('Board').get_node('Battlefield')
-onready var hand = get_tree().root.get_node('Board').get_node('Hand')
-onready var cardName = get_node('Name')
-onready var cardEffort = get_node('Effort')
-onready var cardAttack = get_node('Attack')
-onready var cardHealth = get_node('Health')
-onready var cardStats = get_node('CardStats')
-onready var cardHover = get_node('CardHover')
-onready var cardView = get_node('CardView')
+@onready var battleField = get_tree().root.get_node('Board').get_node('Battlefield')
+@onready var hand = get_tree().root.get_node('Board').get_node('Hand')
+@onready var cardName = get_node('Name')
+@onready var cardEffort = get_node('Effort')
+@onready var cardAttack = get_node('Attack')
+@onready var cardHealth = get_node('Health')
+@onready var cardStats = get_node('CardStats')
+@onready var cardHover = get_node('CardHover')
+@onready var cardView = get_node('CardView')
 
 
 var isGigaChad = false 
@@ -26,7 +26,7 @@ func update_card():
 	cardHealth.text = str(cardStats.health)
 	
 	if(cardStats.health < MAIN.cardTypeLookup[cardType].health):
-		get_node("Health").add_color_override("font_color",  ColorN('lightCoral'))
+		get_node("Health").add_theme_color_override("font_color",  Color.LIGHT_CORAL)
 		
 	cardName.text = cardStats.cardName
 	cardEffort.text = str(cardStats.effort)

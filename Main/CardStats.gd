@@ -5,7 +5,7 @@ var health
 var cardName
 var effort 
 
-onready var cardType = get_parent().cardType
+@onready var cardType = get_parent().cardType
 
 func _ready():
 	attack = MAIN.cardTypeLookup[cardType].attack

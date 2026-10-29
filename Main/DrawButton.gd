@@ -1,7 +1,7 @@
 extends TextureButton
 
-onready var hand = get_tree().root.get_node('Board').get_node('Hand')
-onready var deckList = get_tree().root.get_node('Board').get_node('DeckView').get_node('CardGrid')
+@onready var hand = get_tree().root.get_node('Board').get_node('Hand')
+@onready var deckList = get_tree().root.get_node('Board').get_node('DeckView').get_node('CardGrid')
 
 #func reset():
 #	disabled = false

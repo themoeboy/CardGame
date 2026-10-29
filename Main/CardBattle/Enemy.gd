@@ -1,18 +1,17 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 
-onready var playerCard = get_parent().get_node("Player")
-onready var windupTimer = get_parent().get_node("WindupTimer")
-onready var crashAnimation = get_parent().get_node("CrashAnimation")
+@onready var playerCard = get_parent().get_node("Player")
+@onready var windupTimer = get_parent().get_node("WindupTimer")
+@onready var crashAnimation = get_parent().get_node("CrashAnimation")
 
 
-var velocity = Vector2(0,0)
 const UP = Vector2(0,-1)
 
-onready var cardSpeed = get_parent().cardSpeed
-onready var cardWindupSpeed = get_parent().cardWindUpSpeed
+@onready var cardSpeed = get_parent().cardSpeed
+@onready var cardWindupSpeed = get_parent().cardWindUpSpeed
 
-onready var speedLines = get_node("Speedlines")
+@onready var speedLines = get_node("Speedlines")
 
 func _ready():
 	get_parent().windup = true
@@ -28,7 +27,7 @@ func _physics_process(delta):
 	if collision: 
 		queue_free()
 		crashAnimation.visible = true
-		crashAnimation.playing = true
+		crashAnimation.play()
 
 
 func _on_WindupTimer_timeout():

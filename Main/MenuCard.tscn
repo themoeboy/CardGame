@@ -1,143 +1,163 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene format=3]
 
-[ext_resource path="res://Assets/Cards/card-1.png" type="Texture" id=1]
-[ext_resource path="res://Main/MenuCard.gd" type="Script" id=2]
-[ext_resource path="res://Assets/DotGothic16-Regular.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://Main/CardStats.gd" type="Script" id=4]
-[ext_resource path="res://Assets/Animations/cardHover2.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Animations/cardHover3.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Animations/cardHover1.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Animations/cardHover4.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Animations/cardAbility4.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Animations/cardAbility1.png" type="Texture" id=12]
-[ext_resource path="res://Assets/Animations/cardAbility2.png" type="Texture" id=14]
-[ext_resource path="res://Assets/Animations/cardAbility3.png" type="Texture" id=16]
+[ext_resource type="Texture2D" path="res://Assets/Cards/card-1.png" id="1"]
+[ext_resource type="Script" path="res://Main/MenuCard.gd" id="2"]
+[ext_resource type="FontFile" path="res://Assets/DotGothic16-Regular.ttf" id="3"]
+[ext_resource type="Script" path="res://Main/CardStats.gd" id="4"]
+[ext_resource type="Texture2D" path="res://Assets/Animations/cardHover2.png" id="5"]
+[ext_resource type="Texture2D" path="res://Assets/Animations/cardHover3.png" id="6"]
+[ext_resource type="Texture2D" path="res://Assets/Animations/cardHover1.png" id="7"]
+[ext_resource type="Texture2D" path="res://Assets/Animations/cardHover4.png" id="8"]
+[ext_resource type="Texture2D" path="res://Assets/Animations/cardAbility4.png" id="10"]
+[ext_resource type="Texture2D" path="res://Assets/Animations/cardAbility1.png" id="12"]
+[ext_resource type="Texture2D" path="res://Assets/Animations/cardAbility2.png" id="14"]
+[ext_resource type="Texture2D" path="res://Assets/Animations/cardAbility3.png" id="16"]
 
-[sub_resource type="DynamicFont" id=1]
-size = 11
-outline_size = 1
-outline_color = Color( 0, 0, 0, 1 )
-use_mipmaps = true
-extra_spacing_char = 2
-font_data = ExtResource( 3 )
+[sub_resource type="FontVariation" id="1"]
+base_font = ExtResource("3")
+spacing_glyph = 2
 
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "default",
+[sub_resource type="SpriteFrames" id="2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8")
+}],
+"loop": 1,
+"name": &"default",
 "speed": 10.0
-} ]
+}]
 
-[sub_resource type="SpriteFrames" id=3]
-animations = [ {
-"frames": [ ExtResource( 12 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 10 ) ],
-"loop": true,
-"name": "default",
+[sub_resource type="SpriteFrames" id="3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10")
+}],
+"loop": 1,
+"name": &"default",
 "speed": 5.0
-} ]
+}]
 
 [node name="MenuCard" type="TextureButton"]
-margin_right = 48.0
-margin_bottom = 65.0
+offset_right = 48.0
+offset_bottom = 65.0
 mouse_filter = 1
-texture_normal = ExtResource( 1 )
-script = ExtResource( 2 )
+texture_normal = ExtResource("1")
+script = ExtResource("2")
 
 [node name="Name" type="Label" parent="."]
 anchor_left = 0.00033334
 anchor_top = 0.553846
 anchor_right = 1.0265
 anchor_bottom = 0.762
-margin_left = -0.0160003
-margin_right = 14.728
-margin_bottom = 4.47
-rect_scale = Vector2( 0.75, 0.75 )
-custom_fonts/font = SubResource( 1 )
-align = 1
-valign = 1
-autowrap = true
+offset_left = -0.0160003
+offset_right = 14.728
+offset_bottom = 4.47
+scale = Vector2(0.75, 0.75)
+theme_override_fonts/font = SubResource("1")
+theme_override_font_sizes/font_size = 11
+theme_override_constants/outline_size = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 clip_text = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="Attack" type="Label" parent="."]
 anchor_left = 0.25
 anchor_top = 0.753846
 anchor_right = 0.5105
 anchor_bottom = 0.962
-margin_right = 3.496
-margin_bottom = 4.46999
-rect_scale = Vector2( 0.75, 0.75 )
-custom_fonts/font = SubResource( 1 )
+offset_right = 3.496
+offset_bottom = 4.46999
+scale = Vector2(0.75, 0.75)
+theme_override_fonts/font = SubResource("1")
+theme_override_font_sizes/font_size = 11
+theme_override_constants/outline_size = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "20"
-align = 1
-valign = 1
-autowrap = true
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 uppercase = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="Effort" type="Label" parent="."]
 anchor_left = 0.0416667
 anchor_top = 0.0153846
 anchor_right = 0.281333
 anchor_bottom = 0.208154
-margin_right = 3.496
-margin_bottom = 4.46999
-rect_scale = Vector2( 0.75, 0.75 )
-custom_fonts/font = SubResource( 1 )
+offset_right = 3.496
+offset_bottom = 4.46999
+scale = Vector2(0.75, 0.75)
+theme_override_fonts/font = SubResource("1")
+theme_override_font_sizes/font_size = 11
+theme_override_constants/outline_size = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "20"
-align = 1
-valign = 1
-autowrap = true
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 uppercase = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="Health" type="Label" parent="."]
 anchor_left = 0.666667
 anchor_top = 0.753846
 anchor_right = 0.9275
 anchor_bottom = 0.962
-margin_right = 3.48
-margin_bottom = 4.46999
-rect_scale = Vector2( 0.75, 0.75 )
-custom_fonts/font = SubResource( 1 )
+offset_right = 3.48
+offset_bottom = 4.46999
+scale = Vector2(0.75, 0.75)
+theme_override_fonts/font = SubResource("1")
+theme_override_font_sizes/font_size = 11
+theme_override_constants/outline_size = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "20"
-align = 1
-valign = 1
-autowrap = true
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 uppercase = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="BattleDirection" type="RayCast2D" parent="."]
-position = Vector2( 25, 31 )
+position = Vector2(25, 31)
 enabled = true
 
-[node name="CardPosition" type="Position2D" parent="."]
+[node name="CardPosition" type="Marker2D" parent="."]
 
 [node name="CardStats" type="Node" parent="."]
-script = ExtResource( 4 )
+script = ExtResource("4")
 
-[node name="CardHover" type="AnimatedSprite" parent="."]
+[node name="CardHover" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2( 24.25, 31.875 )
-scale = Vector2( 0.992857, 1.00278 )
-frames = SubResource( 2 )
+position = Vector2(24.25, 31.875)
+scale = Vector2(0.992857, 1.00278)
+sprite_frames = SubResource("2")
 frame = 2
-playing = true
+autoplay = "default"
 
-[node name="CardAbility" type="AnimatedSprite" parent="."]
+[node name="CardAbility" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2( 26, 32 )
-frames = SubResource( 3 )
-playing = true
+position = Vector2(26, 32)
+sprite_frames = SubResource("3")
+autoplay = "default"
 
 [connection signal="mouse_entered" from="." to="." method="_on_Card_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_Card_mouse_exited"]

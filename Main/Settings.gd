@@ -1,8 +1,8 @@
 extends Control
 
-onready var easyButton = get_node("EasyButton")
-onready var hardButton = get_node("HardButton")
-onready var mediumButton = get_node("MediumButton")
+@onready var easyButton = get_node("EasyButton")
+@onready var hardButton = get_node("HardButton")
+@onready var mediumButton = get_node("MediumButton")
 
 func _on_MusicSlider_value_changed(value):
 	AudioServer.set_bus_volume_db(1,lerp(AudioServer.get_bus_volume_db(1),value,0.5))
@@ -13,7 +13,7 @@ func _on_MainSlider_value_changed(value):
 
 func _on_ExitButton_pressed():
 	SOUND.play('Confirm')
-	get_tree().change_scene("res://Main/Menu.tscn")
+	get_tree().change_scene_to_file("res://Main/Menu.tscn")
 	
 	
 func _process(delta):
